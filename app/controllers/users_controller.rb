@@ -11,9 +11,12 @@ class UsersController < ApplicationController
     @location = Location.new
   end
 
+  # TABS!!!
   def create
   	user = User.new(user_params)
   	if user.save && user.valid?
+      # Might be nice to have a user.set_location method??
+      # user.set_location(params[:user])
        user.locations.create(longitude:params[:user][:long], latitude:params[:user][:lat])
   		session[:user_id] = user.id
   		redirect_to activities_path

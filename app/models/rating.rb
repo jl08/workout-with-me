@@ -7,6 +7,9 @@ class Rating < ActiveRecord::Base
   validates :rater, :presence => true
 
   def match
+    # Doing it this way should avoid a database query:
+    # Match.where(initiator: [ self.rater, self.ratee ], responder: [ self.rater, self.ratee ],  accepted: 1)
+
     if Match.find_by(initiator_id: self.rater.id, responder_id: self.ratee.id, accepted: 1)
       match = Match.find_by(initiator_id: self.rater.id, responder_id: self.ratee.id, accepted: 1)
     else
@@ -15,6 +18,7 @@ class Rating < ActiveRecord::Base
   end
 
   def already_exists?
+    # ! Rating.where(rater_id: self.rater.id, ratee_id: self.ratee.id).empty?
     Rating.where(rater_id: self.rater.id, ratee_id: self.ratee.id) != []
   end
 

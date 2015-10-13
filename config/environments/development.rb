@@ -1,4 +1,9 @@
 Rails.application.configure do
+  config.image_urls = {
+    weight_lifting: "http://www.womenshealthmag.com/sites/womenshealthmag.com/files/images/beauty-weights-art.jpg",
+    running: ''
+  }
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

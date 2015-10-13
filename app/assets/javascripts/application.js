@@ -18,17 +18,8 @@
 //= require foundation
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+// Please move this and any other code into its own file.  This file should
+// be used as a manifest file only
 
-$(document).ready(function(){
-	 $("#potential_match_avatar").swipe( {
-    swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-      if (direction == "left"){
-      	$("#dislike_form").submit();
-      } else if (direction == "right"){
-      	$("#like_form").submit();
-      }
-    },threshold:75
-  });
-})
+$(function(){ $(document).foundation(); });
 

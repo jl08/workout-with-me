@@ -19,11 +19,16 @@ class MatchesController < ApplicationController
     @match = Match.new
     @potential_match = User.find_by(id: params[:id])
     @average_rating = @potential_match.average_rating
+    # I'd like to use this method like this:
+    # @distance = current_user.distance_to(@potential_match)
     @distance_in_miles = calculate_distance([@potential_match.locations.first.latitude,@potential_match.locations.first.longitude],[current_user.locations.first.latitude,current_user.locations.first.longitude])
   end
 
   def create
     last_match = Match.find_by(initiator_id: params[:match][:responder_id], responder_id: current_user.id)
+
+    # This logic needs to be refactored.  Too much happening here with too many logic
+    # branches!
     if last_match
       if params[:commit] == "LIKE"
         last_match.update_attributes(accepted: 1)

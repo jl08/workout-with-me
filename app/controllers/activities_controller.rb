@@ -9,6 +9,8 @@ class ActivitiesController < ApplicationController
     chosen_activities = params[:name]
     if chosen_activities
       chosen_activities.each do |activity|
+
+        # Use Activity.find_or_create_by() instead of this big if/else statement
         if Activity.find_by(name: activity)
           activity = Activity.find_by(name: activity)
         else

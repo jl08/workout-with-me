@@ -24,10 +24,18 @@ class User < ActiveRecord::Base
 	has_secure_password
 
   def average_rating
+    # This code can be more concise:
+    #
+    # all_ratings = ratee_ratings.map(&:rank)
+    # return nil if all_ratings.empty?
+    # (all_ratings.sum / all_ratings.length).to_f
+    # ==
     all_ratings = Rating.where(ratee_id: self.id).map do |rating|
       rating.rank
     end
     if all_ratings == []
+      # Dont return user-facing info from your models.  I would return a nil in
+      # this case probably
       return "This user has no ratings yet"
     else
       sum_of_ratings = all_ratings.inject { |sum, rating| sum + rating }

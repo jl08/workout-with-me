@@ -3,7 +3,7 @@
 <%= form_for @activities do |f| %>
 
   <div class="activity_container">
-    <img src="http://www.womenshealthmag.com/sites/womenshealthmag.com/files/images/beauty-weights-art.jpg"/>
+    <img src="<%= Rails.configuration.image_urls[:weight_lifting] %>" />
     <div class="spacer"></div>
     <%= check_box_tag "name[]","Lifting" %>Lifting
   </div>

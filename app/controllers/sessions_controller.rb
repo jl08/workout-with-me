@@ -7,10 +7,18 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: session_params[:email])
+    # This method is a bit long.  Can you refactor anything?
     if user.try(:authenticate, session_params[:password])
-      session[:user_id] = user.id
-      user.locations.first.update_attributes(latitude: session_params[:lat],longitude: session_params[:long])
+      log_user_in!(user, session_params[:lat], session_params[:long])
       flash[:message] = "You've succesfully logged in"
+
+      # This would be a nice refactoring:
+      # if current_user.next_match
+      #   redirect_to match_path(current_user.next_match)
+      # else
+      #   render file: "error"
+      # end
+
       potential_matches = get_potential_matches(current_user)
       next_match = find_next_match(current_user, potential_matches)
       if next_match == nil
