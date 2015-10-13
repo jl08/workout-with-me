@@ -2,22 +2,26 @@
   <div class="index-box">  	
   	<div class="row">
   		<div class="large-6 large-offset-3 medium-8 medium-offset-2 hide-for-small-only columns">
-  		  <%= link_to "Login Here", login_path, :class => "button left" %>
-  		  <%= link_to "Signup Here", new_user_path, :class => "button right" %>
-  		</div>
-  		<div class="small-12 show-for-small-only columns">
-  			<div class="button-bar-index">
-  				<div class="button-container-index">
-  		  		<%= link_to "Login", login_path, :class => "button center" %>
-  		  	</div>
-  		  </div>
-  		</div>
-  		<div class="small-12 show-for-small-only columns">
-  		  <div class="button-bar-index">
-  				<div class="button-container-index">
-  		      <%= link_to "Signup", new_user_path, :class => "button center" %>
-  		    </div>
-  		  </div>
+        <div class="activities-box">
+          <div class="spacer"></div>
+  		    <%= link_to "Login Here", login_path, :class => "button left" %>
+  		    <%= link_to "Signup Here", new_user_path, :class => "button right" %>
+        </div>
+      </div>
+      <div class="activities-box">
+        <div class="small-12 show-for-small-only columns">
+         <div class="button-bar-index">
+          <div class="button-container-index">
+            <%= link_to "Login", login_path, :class => "button center" %>
+          </div>
+        </div>
+      </div>
+      <div class="small-12 show-for-small-only columns">
+        <div class="button-bar-index">
+          <div class="button-container-index">
+            <%= link_to "Signup", new_user_path, :class => "button center" %>
+          </div>
+        </div>
   		</div>
    	</div>
   </div>
