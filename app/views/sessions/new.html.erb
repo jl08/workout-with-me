@@ -5,6 +5,7 @@
 	<%= flash[:login_fail] %>
 		<div class="row">
 			<div class="large-12 columns">
+			  <div class="activities-box">
 				<%= form_for :session, url: '/login', html: {id: "login"} do |f| %>
 
 				<div class="row">
@@ -15,17 +16,18 @@
 
 				<div class="spacer"></div>
 
-				<div class="row">
-					<div class="large-12 columns">
+			  <div class="large-12 columns">
+				  <div class="row">
 						<%= f.password_field :password, placeholder: "Password" %>
 					</div>
+				</div>
 				</div>
 
 				<div class="spacer"></div>
 
 
-				<div class="row">
-					<div class="large-12 cloumns">
+			  <div class="large-12 cloumns">
+				  <div class="row">
 						<%= f.hidden_field :lat , id: 'lat', value: '' %>
 						<%= f.hidden_field :long, id:'long', value: '' %>
 					</div>
