@@ -3,70 +3,70 @@
   <% flash[:errors].each do |msg| %>
   <%= msg %>
   <br>
-  <% end %>
-  <% end %>
-  <div class="spacer"></div>
+<% end %>
+<% end %>
 
+<div class="spacer"></div>
+<div class="spacer"></div>
 
   <div class="index-box">
     <div class="row">
       <div class="large-12 columns">
         <div class="signup-box">
-          <%= form_for @user, url: users_path, html: { multipart: true } do |f| %>
+        <%= form_for @user, url: users_path, html: { multipart: true } do |f| %>
 
-          <div class="row">
-            <div onClick="getLocation()" class="large-12 columns">
-              <%= f.text_field :name, placeholder: "Name" %>
+        <div class="row">
+          <div onClick="getLocation()" class="large-12 columns">
+            <%= f.text_field :name, placeholder: "Name" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-12 columns">
+            <%= f.text_field :email, placeholder: "Email" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-12 columns">
+            <%= f.password_field :password, placeholder: "Password" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-12 columns">
+            <div>
+            Male
+            <%= radio_button("user","gender","Male") %>
+            </div>
+            <div>
+            Female
+            <%= radio_button("user","gender","Female") %>
             </div>
           </div>
+        </div>
 
-          <div class="row">
-            <div class="large-12 columns">
-              <%= f.text_field :email, placeholder: "Email" %>
-            </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <%= f.text_field :description, placeholder: "Description" %>
           </div>
+        </div>
 
-          <div class="row">
-            <div class="large-12 columns">
-              <%= f.password_field :password, placeholder: "Password" %>
-            </div>
+        <div class="row">
+          <div class="large-12 columns">
+          <%= f.select :age, (18..99) %>
           </div>
+        </div>
 
-          <div class="row">
-            <div class="large-12 columns">
-              <div>
-                Male
-                <%= radio_button("user","gender","Male") %>
-              </div>
-              <div>
-                Female
-                <%= radio_button("user","gender","Female") %>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="large-12 columns">
-              <%= f.text_field :description, placeholder: "Description" %>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="large-12 columns">
-              <%= f.select :age, (18..99) %>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="large-12 columns">
-              <%= f.file_field :avatar, placeholder: "Avatar" %>
-            </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <%= f.file_field :avatar, placeholder: "Avatar" %>
           </div>
         </div>
 
 
 
-        <div class="row">
+      <div class="row">
           <div class="large-12 cloumns">
             <%= f.hidden_field :lat , id: 'lat', value: '' %>
             <%= f.hidden_field :long, id:'long', value: '' %>
@@ -75,23 +75,20 @@
 
 
         <script>
-          var latitude = document.getElementById("lat");
-          var longitude = document.getElementById("long")
-
-          function getLocation() {
-            if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(showPosition);
-            } else {
-              latitude.innerHTML = "Geolocation is not supported by this browser.";
-            }
+        var latitude = document.getElementById("lat");
+        var longitude = document.getElementById("long")
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else {
+            latitude.innerHTML = "Geolocation is not supported by this browser.";
           }
-          function showPosition(position) {
-            latitude.value = position.coords.latitude
-            longitude.value = position.coords.longitude;
-          }
-
+        }
+        function showPosition(position) {
+          latitude.value = position.coords.latitude
+          longitude.value = position.coords.longitude;
+        }
         </script>
-        <div class="spacer"></div>
 
         <div class="row">
           <div class="large-12 columns">
