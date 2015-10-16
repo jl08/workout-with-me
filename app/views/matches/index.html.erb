@@ -17,7 +17,7 @@
         </div>
       </div>
           <div class="matches-index-activities-list">
-            <strong><p class='matcher_name'><%= link_to match.responder.name, match_messages_path(match) %></p></strong>
+            <strong><p class='matcher_name'><%= link_to match.responder.name, user_path(match.responder) %></p></strong>
             <% if match.messages.all.last %>
               <div class="row">
                 <div class="large-12 medium-12 small-12 columns">
@@ -65,7 +65,7 @@
         </div>
       </div>
           <div class="matches-index-activities-list">
-            <strong><p class='matcher_name'><%= link_to match.initiator.name, match_messages_path(match) %></p></strong>
+            <strong><p class='matcher_name'><%= link_to match.initiator.name, user_path(match.initiator) %>></p></strong>
             <% if match.messages.all.last %>
               <div class="row">
                 <div class="large-12 medium-12 small-12 columns">

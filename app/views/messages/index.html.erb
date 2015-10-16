@@ -1,7 +1,7 @@
 <div class="row">
   <div class="large-12 columns">
     <div id='chat_header' class="panel">
-      <h1 id="chat_title"><%= @receiver.name %></h1>
+      <h1 id="chat_title"><%= link_to @receiver.name, user_path(@receiver) %></h1>
       <div id='chat_pic' class="round-image-50"><%= image_tag @receiver.avatar.url(:thumb)%></div>
       <p class="user_rating"><%="User Rating: " + @receiver.average_rating.to_s %></p>
       <%= form_for @rating do |f| %>
