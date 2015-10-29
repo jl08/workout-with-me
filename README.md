@@ -1,6 +1,7 @@
 Do You Even?
 
 Heroku: http://fitfriender.herokuapp.com/
+
 Trello link: https://trello.com/b/TRFtLdsc/workoutwithme
 
 Coveralls Progress
